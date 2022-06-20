@@ -1,6 +1,6 @@
 variable "YC_REGION" {
   type    = string
-  default = "ru-central1-a"
+  default = "ru-central1-c"
 }
 
 variable "YC_TOKEN" {
