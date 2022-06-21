@@ -13,27 +13,3 @@ provider "yandex" {
   folder_id = var.YC_FOLDER_ID
   zone      = var.YC_REGION
 }
-
-resource "yandex_compute_instance" "vm-1" {
-  name = "te-vm-1"
-
-  resources {
-    cores  = 2
-    memory = 2
-  }
-
-  boot_disk {
-    initialize_params {
-      image_id = "fd8m0ouka9qmnuauc350"
-    }
-  }
-
-  network_interface {
-    subnet_id = "b0cld3n80ag233h57vnf"
-    nat       = true
-  }
-
-  metadata = {
-    ssh-keys = "duke:${var.SSH_KEY_OPEN}"
-  }
-}
