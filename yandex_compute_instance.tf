@@ -6,6 +6,9 @@ data "yandex_vpc_subnet" "dmz_subnet" {
   subnet_id = yandex_vpc_subnet.dmz_subnet.id
 }
 
+data "yandex_vpc_subnet" "infra_subnet" {
+  subnet_id = yandex_vpc_subnet.infra_subnet.id
+}
 
 resource "yandex_compute_instance" "vm-1" {
   allow_stopping_for_update = true
@@ -30,9 +33,9 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   network_interface {
-    subnet_id = data.yandex_vpc_subnet.infra_subnet.id
+    subnet_id  = data.yandex_vpc_subnet.infra_subnet.id
     ip_address = var.YC_VM1_IPV4_ADDRESS
-    nat       = var.YC_VM1_NETWORK_IF_NAT
+    nat        = var.YC_VM1_NETWORK_IF_NAT
   }
 
   scheduling_policy {
