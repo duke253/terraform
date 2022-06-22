@@ -107,3 +107,8 @@ variable "YC_VM1_NETWORK_IF_NAT" {
   type        = bool
   description = "..."
 }
+
+variable "YC_VM1_IPV4_ADDRESS" {
+  type        = string
+  description = "..."
+}
